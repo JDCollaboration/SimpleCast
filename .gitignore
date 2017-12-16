@@ -4,9 +4,11 @@
 /web/tmp
 /api/dist
 /api/tmp
+
 # dependencies
 /web/node_modules
 /api/node_modules
+
 # IDEs and editors
 .idea
 .project
@@ -14,6 +16,7 @@
 .c9/
 *.launch
 .settings/
+
 # IDE - VSCode
 /web/.vscode/*
 /web/!.vscode/settings.json
@@ -25,6 +28,7 @@
 /api/!.vscode/tasks.json
 /api/!.vscode/launch.json
 /api/!.vscode/extensions.json
+
 # misc
 /web/.sass-cache
 /web/connect.lock
@@ -38,6 +42,8 @@
 /api/npm-debug.log
 /api/testem.log
 /web/typings
+/api/*.env
+
 # e2e
 /web/e2e/*.js
 /web/e2e/*.map

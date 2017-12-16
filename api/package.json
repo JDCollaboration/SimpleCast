@@ -3,19 +3,23 @@
   "version": "1.0.0",
   "description": "API for Simple Cast",
   "license": "MIT",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "start": "npm run build:live",
-    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/app.ts"
+    "build:live": "nodemon --require dotenv/config --exec ./node_modules/.bin/ts-node -- ./server/index.ts"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2"
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "pg-promise": "^7.3.2"
   },
   "devDependencies": {
+    "@types/dotenv": "^4.0.2",
     "@types/express": "^4.0.39",
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.0.56",
+    "@types/pg": "^7.4.1",
     "mocha": "^4.0.1",
     "nodemon": "^1.12.5",
     "ts-node": "^3.3.0",

@@ -17,6 +17,6 @@
     "types": ["node", "mocha", "express"]
   },
   "include": [
-    "src/**/*"
+    "server/**/*"
   ]
 }
