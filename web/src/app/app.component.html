@@ -1,12 +1,21 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>Simple Cast</span>
-
     <span class="toolbar-spacer"></span>
-
-    <mat-icon class="toolbar-icon">face</mat-icon>
+    <button *ngIf="!userAuthenticated" mat-button class="toolbar-right">Register</button>
+    <button *ngIf="!userAuthenticated" mat-button class="toolbar-right" (click)="onLoginClicked()">Login</button>
+    <button *ngIf="userAuthenticated" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>face</mat-icon>
+      </button>
+    <button *ngIf="userAuthenticated" mat-button class="toolbar-right" (click)="onLogoutClicked()">Logout</button>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <span>Profile</span>
+    </button>
+  </mat-menu>
 
 <div class="wrapper">
   <form class="example-form">

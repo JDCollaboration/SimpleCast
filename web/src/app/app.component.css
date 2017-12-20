@@ -1,9 +1,10 @@
 .toolbar-spacer {
-  flex: 1 1 auto;
+  flex: auto;
 }
 
-.toolbar-icon {
-  padding: 0 14px;
+.toolbar-right {
+  font-size: 14px;
+  padding: 0 1em;
 }
 
 .example-form {
