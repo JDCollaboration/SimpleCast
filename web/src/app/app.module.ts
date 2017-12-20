@@ -5,11 +5,13 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
+import { NewCompComponent } from './new-comp/new-comp.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NewCompComponent
   ],
   imports: [
     BrowserModule,
