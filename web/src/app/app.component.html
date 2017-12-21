@@ -1,44 +1,33 @@
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Simple Cast</span>
-    <span class="toolbar-spacer"></span>
-    <button *ngIf="!userAuthenticated" mat-button class="toolbar-right">Register</button>
-    <button *ngIf="!userAuthenticated" mat-button class="toolbar-right" (click)="onLoginClicked()">Login</button>
-    <button *ngIf="userAuthenticated" mat-icon-button [matMenuTriggerFor]="menu">
-        <mat-icon>face</mat-icon>
-      </button>
-    <button *ngIf="userAuthenticated" mat-button class="toolbar-right" (click)="onLogoutClicked()">Logout</button>
-  </mat-toolbar-row>
-</mat-toolbar>
+<div fxLayout="column" fxFlex>
+  <app-top-navbar></app-top-navbar>
+  <div fxLayout="row" fxFlex>
+    <app-left-sidenav></app-left-sidenav>
+    <div fxLayout="row" fxFlex>
 
-<mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <span>Profile</span>
-    </button>
-  </mat-menu>
+        <form class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Favorite food" value="Sushi">
+          </mat-form-field>
 
-<div class="wrapper">
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Favorite food" value="Sushi">
-    </mat-form-field>
-  
-    <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Leave a comment"></textarea>
-    </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <textarea matInput placeholder="Leave a comment"></textarea>
+          </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-        <mat-select placeholder="Favorite food" [(value)]="val">
-          <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{ food.viewValue }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="Favorite food" [(value)]="val">
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{ food.viewValue }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
 
-      <mat-form-field class="example-full-width">
-          <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-  </form>
+          <mat-form-field class="example-full-width">
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </form>
+    </div>
+
+  </div>
 </div>

@@ -5,11 +5,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from './modules/material.module';
 import { AppComponent } from './app.component';
+import { LeftSidenavComponent } from './left-sidenav/left-sidenav.component';
+import { TopNavbarComponent } from './top-navbar/top-navbar.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LeftSidenavComponent,
+    TopNavbarComponent
   ],
   imports: [
     BrowserModule,

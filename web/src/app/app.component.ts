@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  userAuthenticated: boolean;
   val: string;
 
   foods = [
@@ -16,14 +15,6 @@ export class AppComponent {
   ];
 
   constructor() {
-    this.userAuthenticated = false;
-  }
 
-  onLoginClicked() {
-    this.userAuthenticated = true;
-  }
-
-  onLogoutClicked() {
-    this.userAuthenticated = false;
   }
 }

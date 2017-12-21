@@ -1,0 +1,8 @@
+.toolbar-spacer {
+    flex: auto;
+  }
+  
+  .toolbar-right {
+    font-size: 14px;
+    padding: 0 1em;
+  }

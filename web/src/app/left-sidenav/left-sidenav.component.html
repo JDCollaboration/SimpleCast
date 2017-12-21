@@ -1,0 +1,17 @@
+<mat-sidenav mode="side" opened>
+
+  <mat-tab-group>
+    <mat-tab label="All">
+      <mat-nav-list>
+        <mat-list-item *ngFor="let podcast of podcasts" (click)="selectedPodcast = podcast">
+
+          <span>{{podcast.name}}</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-tab>
+    <mat-tab label="Favorites">
+      <span>Favorites here</span>
+    </mat-tab>
+  </mat-tab-group>
+
+</mat-sidenav>
