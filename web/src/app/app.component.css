@@ -4,10 +4,23 @@
   width: 100%;
 }
 
-.example-full-width {
-  width: 100%;
-}
-
 .wrapper {
   padding: 1em;
+}
+
+.toolbar-spacer {
+  flex: auto;
+}
+
+.toolbar-right {
+  font-size: 14px;
+  padding: 0 1em;
+}
+
+.left-sidenav {
+  background-color: lightgray;
+}
+
+.left-sidenav button {
+  width: 100%;
 }

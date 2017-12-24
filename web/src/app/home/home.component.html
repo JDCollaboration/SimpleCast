@@ -1,0 +1,23 @@
+<form class="example-form">
+    <mat-form-field>
+      <input matInput placeholder="Favorite food" value="Sushi">
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Leave a comment"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Favorite food" [(value)]="val">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{ food.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </form>

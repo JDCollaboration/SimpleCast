@@ -4,22 +4,22 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialModule } from './modules/material.module';
+import { RoutingModule } from './modules/routing.module';
 import { AppComponent } from './app.component';
-import { LeftSidenavComponent } from './left-sidenav/left-sidenav.component';
-import { TopNavbarComponent } from './top-navbar/top-navbar.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LeftSidenavComponent,
-    TopNavbarComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

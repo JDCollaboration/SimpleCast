@@ -1,33 +1,47 @@
-<div fxLayout="column" fxLayoutGap="1em" fxFlex>
-  <app-top-navbar></app-top-navbar>
-  <div fxLayout="row" fxLayoutGap="1em" fxFlex>
-    <app-left-sidenav></app-left-sidenav>
-    <div fxLayout="row" fxFlex>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Simple Cast</span>
+    <span class="toolbar-spacer"></span>
+    <button *ngIf="!userAuthenticated" mat-button class="toolbar-right">Register</button>
+    <button *ngIf="!userAuthenticated" mat-button class="toolbar-right" (click)="onLoginClicked()">Login</button>
+    <button *ngIf="userAuthenticated" mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>face</mat-icon>
+    </button>
+    <button *ngIf="userAuthenticated" mat-button class="toolbar-right" (click)="onLogoutClicked()">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-        <form class="example-form">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Favorite food" value="Sushi">
-          </mat-form-field>
+<mat-sidenav-container (backdropClick)="close()">
+  <mat-sidenav class="left-sidenav" #sidenav [mode]="sidenavMode" (keydown.escape)="close()" disableClose>
+    <p>
+      <button mat-button>Popular</button>
+    </p>
+    <p>
+      <button mat-button>Recent Podcasts</button>
+    </p>
+  </mat-sidenav>
 
-          <mat-form-field class="example-full-width">
-            <textarea matInput placeholder="Leave a comment"></textarea>
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <mat-select placeholder="Favorite food" [(value)]="val">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{ food.viewValue }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </form>
-        
+  <mat-sidenav-content>
+    <div class="wrapper">
+      <router-outlet></router-outlet>
     </div>
-  </div>
-</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>dialpad</mat-icon>
+    <span>Account Settings</span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Disabled Placeholder</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>Placeholder</span>
+  </button>
+</mat-menu>
