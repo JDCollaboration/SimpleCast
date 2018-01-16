@@ -6,6 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build:live",
+    "production": "npm clean",
+    "clean": "rm -rf dist",
+    "compile": "echo 'Building...' && npm run clean && tsc",
     "build:live": "nodemon --require dotenv/config --exec ./node_modules/.bin/ts-node -- ./server/index.ts"
   },
   "dependencies": {
