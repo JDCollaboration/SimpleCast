@@ -12,7 +12,7 @@
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
-    "pg-promise": "^7.3.2"
+    "pg": "^7.4.1"
   },
   "devDependencies": {
     "@types/dotenv": "^4.0.2",

@@ -1,16 +1,9 @@
-import * as pgPromise from 'pg-promise';
-import { IMain, IDatabase, TConfig } from 'pg-promise';
+import { Pool, QueryResult } from 'pg';
 
-const pgp: IMain = pgPromise({});
+const pool = new Pool();
 
-const cn: TConfig = {
-  host: process.env.DB_HOST,
-  port: +`${process.env.DB_PORT}`, 
-  database: process.env.DB_DATABASE,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS
-};
+const query = (text: string, params?: string[]) => pool.query(text, params);
 
-const db:IDatabase<any> = pgp(cn);
+export const simplecastSchemaName = 'simplecast';
 
-export default db;
+export default query;
