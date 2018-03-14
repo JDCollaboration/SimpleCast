@@ -4,6 +4,6 @@ const pool = new Pool();
 
 const query = (text: string, params?: string[]) => pool.query(text, params);
 
-export const simplecastSchemaName = 'simplecast';
+export const simplecastSchemaName = 'public';
 
 export default query;
