@@ -1,0 +1,2 @@
+require('dotenv').config({path:'home/web/API/simplecast/.env'})
+require('./../dist/index')
