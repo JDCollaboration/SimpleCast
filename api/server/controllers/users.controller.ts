@@ -62,6 +62,23 @@ const usersController = {
     .catch((error: Error) => {
       res.status(500).json(error);
     });
+  },
+
+  /**
+   * Log the user in
+   * @param req 
+   * @param res 
+   */
+  login (req: Request, res: Response) {
+    const { username, password } = req.body;
+
+    usersDataAccess.authenticateUser(username, password)
+    .then(success => {
+      res.status(200).json(success);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
   }
 }
 

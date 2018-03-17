@@ -12,12 +12,14 @@
     "build:live": "nodemon --require dotenv/config --exec ./node_modules/.bin/ts-node -- ./server/index.ts"
   },
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "pg": "^7.4.1"
   },
   "devDependencies": {
+    "@types/bcrypt": "^1.0.0",
     "@types/dotenv": "^4.0.2",
     "@types/express": "^4.0.39",
     "@types/mocha": "^2.2.44",

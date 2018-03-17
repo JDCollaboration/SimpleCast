@@ -1,6 +1,7 @@
 import { QueryResult } from 'pg';
 
 import query, { simplecastSchemaName } from './database-connection';
+import hashing from '../auth/hash';
 
 //table name to use in queries
 const tableName = `${simplecastSchemaName}.users`;
@@ -22,10 +23,28 @@ const usersDataAccess = {
    * @param password 
    * @param email 
    */
-  registerUser(username: string, password: string, email: string): Promise<QueryResult> {
-    // TODO: hash the user's password
+  async registerUser(username: string, password: string, email: string): Promise<QueryResult> {
+    const hash = await hashing.hashNewPassword(password);
+
     return query(`insert into ${tableName} (username, hash, email, creation_date) values ($1, $2, $3, $4)`,
-      [username, password, email, 'now']);
+      [username, hash, email, 'now']);
+  },
+
+  /**
+   * Make sure the user logged in with the correct password
+   * @param username 
+   * @param password 
+   */
+  async authenticateUser(username: string, password: string): Promise<boolean> {
+    const queryResult = await query(`select hash from ${tableName} where username = $1`, [username]);
+
+    let hash: string = '';
+
+    if (queryResult.rowCount === 1) {
+      hash = queryResult.rows[0]['hash'];
+    }
+
+    return hashing.comparePassword(password, hash);
   }
 }
 
