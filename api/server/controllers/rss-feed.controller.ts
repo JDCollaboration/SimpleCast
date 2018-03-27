@@ -13,8 +13,9 @@ const getRssFeedsFromQueryResult = (data: QueryResult) => {
     if (data != undefined && data.rowCount > 0) {
       data.rows.forEach(row => {
         let temp = new RssFeed();
-
-        temp.rssFeedId = +row['rss_feed_id'];
+        temp.podcastID = row['podcast_id'];
+        temp.name= row['name'];
+        temp.description = row['description'];
         temp.url = row['url'];
         temp.playCount = +row['play_count'];
 
