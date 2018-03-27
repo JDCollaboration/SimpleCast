@@ -42,7 +42,7 @@
 /api/npm-debug.log
 /api/testem.log
 /web/typings
-/api/*.env
+/api/*.env*
 
 # e2e
 /web/e2e/*.js
